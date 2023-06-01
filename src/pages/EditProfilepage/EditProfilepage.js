@@ -43,7 +43,7 @@ function EditProfilepage() {
 
     formData.append("occupation", event.occupation);
 
-    await Axios.put(` users/updateUser/${user._id}`, formData, {
+    await Axios.put(`users/updateUser/${user._id}`, formData, {
       headers: { "Content-Type": "multipart/form-data" },
     });
   };

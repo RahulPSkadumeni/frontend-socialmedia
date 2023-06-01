@@ -18,8 +18,10 @@ const Feed = ({ userId, isProfile = false }) => {
   const user = useSelector((state) => state.user);
   const posts = useSelector((state) => state.posts);
   console.log("postssss", posts);
+  console.log("postssss", user._id);
+  const userIdp = user._id;
   const dispatch = useDispatch();
-
+  console.log("first", userIdp);
   useEffect(() => {
     try {
       fetchPost();
@@ -30,7 +32,7 @@ const Feed = ({ userId, isProfile = false }) => {
 
   const fetchPost = async () => {
     if (isProfile) {
-      let res = await axios.get("posts/profile/" + userId);
+      let res = await axios.get("api/posts/profile/" + userId);
       console.log("profile post", res.data);
 
       dispatch(
@@ -39,8 +41,8 @@ const Feed = ({ userId, isProfile = false }) => {
         })
       );
     } else {
-      // console.log("timelineeeeeeeeeeeeeeeeee");
-      const res = await axios.get("posts/timeline/" + user._id);
+      console.log("timelineeeeeeeeeeeeeeeeee");
+      const res = await axios.get("api/posts/timeline/" + userIdp);
       console.log("timeline post", res.data);
       dispatch(
         setPosts({
@@ -55,7 +57,7 @@ const Feed = ({ userId, isProfile = false }) => {
   return (
     <div className="h-full overflow-y-scroll bg-gradient-to-br from-purple-500 via-pink-500 to-indigo-500 font-mono w rounded-3xl text-center p-6 ">
       <div style={{ margin: "100px" }}>
-        <Share content={content} setContent={setContent} />
+        {/* <Share content={content} setContent={setContent} /> */}
 
         {posts &&
           posts?.map((p) => <Post className="max-w-44" key={p._id} post={p} />)}

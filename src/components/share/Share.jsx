@@ -33,7 +33,7 @@ const Share = ({ groupId = false }) => {
     formData.append("image", file);
     formData.append("des", caption);
     formData.append("userId", userid);
-    await Axios.post(" posts/createpostImg", formData, {
+    await Axios.post("posts/createpostImg", formData, {
       headers: { "Content-Type": "multipart/form-data" },
     });
 

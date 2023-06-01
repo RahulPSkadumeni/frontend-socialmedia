@@ -14,6 +14,7 @@ import ReactTimeago from "react-timeago";
 import Axios from "../../utils/axios";
 
 const Post = ({ post }) => {
+  console.log(" post picture", post);
   const [like, setLike] = useState(post.like);
   const dispatch = useDispatch();
 
@@ -93,8 +94,8 @@ const Post = ({ post }) => {
               <img
                 className="h-10 rounded-full "
                 src={
-                  user.profilePicture
-                    ? PF + user.profilePicture
+                  post.profilePicture
+                    ? PF + post.profilePicture
                     : "https://www.kindpng.com/picc/m/22-223863_no-avatar-png-circle-transparent-png.png"
                 }
                 alt="p"
