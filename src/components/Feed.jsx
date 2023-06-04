@@ -32,7 +32,7 @@ const Feed = ({ userId, isProfile = false }) => {
 
   const fetchPost = async () => {
     if (isProfile) {
-      let res = await axios.get("api/posts/profile/" + userId);
+      let res = await axios.get("/posts/profile/" + userId);
       console.log("profile post", res.data);
 
       dispatch(
@@ -42,7 +42,7 @@ const Feed = ({ userId, isProfile = false }) => {
       );
     } else {
       console.log("timelineeeeeeeeeeeeeeeeee");
-      const res = await axios.get("api/posts/timeline/" + userIdp);
+      const res = await axios.get("/posts/timeline/" + userIdp);
       console.log("timeline post", res.data);
       dispatch(
         setPosts({
