@@ -3,6 +3,7 @@ import "./Feed.css";
 import Logo2 from "./Logo/Logo2";
 import Post from "./Post/Post";
 import Share from "./share/Share";
+import BASE_URL from "../utils/baseurl";
 
 import { Posts } from "../../src/dummyData";
 import Banner from "./Banner/Banner";
@@ -32,7 +33,7 @@ const Feed = ({ userId, isProfile = false }) => {
 
   const fetchPost = async () => {
     if (isProfile) {
-      let res = await axios.get("/posts/profile/" + userId);
+      let res = await axios.get(BASE_URL + "/posts/profile/" + userId);
       console.log("profile post", res.data);
 
       dispatch(
@@ -42,7 +43,7 @@ const Feed = ({ userId, isProfile = false }) => {
       );
     } else {
       console.log("timelineeeeeeeeeeeeeeeeee");
-      const res = await axios.get("/posts/timeline/" + userIdp);
+      const res = await axios.get(BASE_URL + "/posts/timeline/" + userIdp);
       console.log("timeline post", res.data);
       dispatch(
         setPosts({

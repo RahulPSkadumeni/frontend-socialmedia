@@ -5,7 +5,7 @@ import BASE_URL from "../../utils/baseurl";
 import Axios from "../../utils/axios";
 
 export const getPosts = async (id) => {
-  const response = await fetch(BASE_URL + `/posts/timeline/${id}`, {
+  const response = await fetch(BASE_URL + `/api/posts/timeline/${id}`, {
     method: "GET",
   });
   return response.json();
@@ -13,7 +13,7 @@ export const getPosts = async (id) => {
 const dispatch = useDispatch;
 export const fetchPost = async (userId) => {
   console.log("fetch posts");
-  let res = await axios.get("/posts/profile/" + userId);
+  let res = await axios.get(BASE_URL + "/api/posts/profile/" + userId);
 
   dispatch(
     setPosts({

@@ -11,6 +11,7 @@ const FriendsCard = () => {
   const [friends, setFriends] = useState([]);
 
   const getFriendlist = async () => {
+    console.log("first>>>>>>>>>>>NNNMMMMMM", userId);
     let friendlist = await fetchFriends(userId);
     console.log(">>f>>>", friendlist);
     setFriends(friendlist);
